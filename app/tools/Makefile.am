@@ -132,6 +132,10 @@ libapptools_a_sources = \
 	gimpmoveoptions.h		\
 	gimpmovetool.c			\
 	gimpmovetool.h			\
+	gimpmybrushoptions-gui.c	\
+	gimpmybrushoptions-gui.h	\
+	gimpmybrushtool.c		\
+	gimpmybrushtool.h		\
 	gimppaintbrushtool.c		\
 	gimppaintbrushtool.h		\
 	gimppaintoptions-gui.c		\
