@@ -30,6 +30,7 @@
 #include "core/gimptoolinfo.h"
 
 #include "paint/gimpinkoptions.h"
+#include "paint/gimpmybrushoptions.h"
 
 #include "widgets/gimpenumaction.h"
 #include "widgets/gimpuimanager.h"
@@ -247,6 +248,27 @@ tools_ink_blob_angle_cmd_callback (GtkAction *action,
                               G_OBJECT (tool_info->tool_options),
                               "blob-angle",
                               1.0, 1.0, 15.0, 0.1, TRUE);
+    }
+}
+
+void
+tools_mybrush_radius_cmd_callback (GtkAction *action,
+                                   gint       value,
+                                   gpointer   data)
+{
+  GimpContext  *context;
+  GimpToolInfo *tool_info;
+  return_if_no_context (context, data);
+
+  tool_info = gimp_context_get_tool (context);
+
+  if (tool_info && GIMP_IS_MYBRUSH_OPTIONS (tool_info->tool_options))
+    {
+      action_select_property ((GimpActionSelectType) value,
+                              action_data_get_display (data),
+                              G_OBJECT (tool_info->tool_options),
+                              "radius",
+                              0.1, 0.1, 0.5, 1.0, FALSE);
     }
 }
 
